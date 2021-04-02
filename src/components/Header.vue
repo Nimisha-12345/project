@@ -59,7 +59,7 @@ nav{
     width: 43%;
 }
 .login i{
-    color: gray;
+    color:white;
     padding-right: 27px;
     font-size: 25px;
     padding-left: 8px;
