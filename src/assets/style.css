@@ -1,0 +1,25 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    background: #f2f2f2;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.main-container{
+    width: 80%;
+    margin: 35px auto;
+    /* height: calc(100vh - 80px); */
+    
+}
+button{
+    color: white;
+    background: #19174a;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 1px solid #19174a;
+    font-size: 13px;
+    border-radius: 5px;
+}

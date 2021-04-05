@@ -14,37 +14,44 @@
                 <span>Abhishek LG <i class="fa fa-angle-down" aria-hidden="true"></i></span>
         </div>
         </div>
+       
     </div>
+    
 
 </template>
 
 <script>
+
+
 export default {
-    
-    
-}
+    name:'Header',
+    components:{
+        
+    }
+
+    }
+
 </script>
 
-<style  scoped>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&display=swap');
-*{
-    margin: 0;
-    box-sizing: border-box;
-    background-color: #19174a;
-}
-div{
-    font-family: 'IBM Plex Serif', serif;
+<style >
+.head{
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 7%;
-}
-.head{
+    padding: 0px 5%;
+    line-height: 80px;
+    height: 80px;
     cursor: pointer;
+    background-color: #19174a;
+    padding-left: 145px;
+    padding-right: 95px;
+}
+.head h1{
+    font-size: 45px;
 }
 nav{
-    color: #989898;
+    color: #6C6A9D;
     display: inline-flex;
 }
 .icon{
@@ -56,12 +63,16 @@ nav{
     padding: 0px 11px;
 }
 .main{
-    width: 43%;
+    display: flex;
+    font-size: 25px;
+    padding-right: 40px;
+}
+.login{
+    font-size: 25px;
 }
 .login i{
-    color:white;
+    color:gray;
     padding-right: 27px;
-    font-size: 25px;
     padding-left: 8px;
 }
 label{
