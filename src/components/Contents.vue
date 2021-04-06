@@ -2,7 +2,7 @@
        <div class="content">
             <h2>List of transactions</h2>
             <span>
-            <button v-on:click="hello()">Create New</button>
+            <button>Create New</button>
             </span>
             
         </div>
@@ -16,13 +16,8 @@ export default {
     name:'Contents',
     components:{
     
-    },methods:{
-        hello()
-        {
-            
-            this.show=!this.show
-        }
-    }
+    },
+    
     
 }
 </script>

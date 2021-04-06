@@ -26,8 +26,10 @@ export default {
 
 <style>
 .foot{
-   margin-left: 40%;
+   margin-left: 28%;
   display: inline-block;
+  margin-top: 36px;
+    position: absolute;
 }
 
 .foot a {

@@ -5,10 +5,11 @@ import VueRouter from 'vue-router'
 import Form from './components/Form.vue'
 // import Header from './components/Header.vue'
 // import Footer from './components/Footer.vue'
+import search from './components/search.vue'
 
 Vue.use(VueRouter);
 const routes=[
-  
+  {path:'/', component:search},
   
   {path:'/form', component:Form}
 ]

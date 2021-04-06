@@ -5,32 +5,33 @@
             <div class="form-box">
                 <h1>Add New Transaction</h1>
                 <p>please fill the bellow detail to add the new transaction</p>
+                <hr>
             </div>
                 <div class="button-box">
                     <form action="#">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Transaction Name*</span>
-                                <input type="text" placeholder="" required>
+                                <input type="text" placeholder="" v-model="name.name" required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Email*</span>
-                                <input type="text" placeholder="" required>
+                                <input type="text" placeholder="" v-model="name.email" required>
                             </div>
                             <div class="input-box">
                                 <span class="details ">Date OF Transaction*</span>
-                                <input type="text" placeholder="" required><i class="fa fa-calendar" style="float: right;margin-top: 8px;
+                                <input type="text" placeholder="" v-model="name.date" required><i class="fa fa-calendar" style="float: right;margin-top: 8px;
                                 right:5%;position: absolute;"></i>
                             </div>
                             <div class="input-box">
                                 <span class="details">Type*</span>
-                                <input type="text" placeholder="" required>
+                                <input type="text" placeholder="" v-model="name.type" required>
                             </div>
-                            <div class="input-box">
+                            <div class="input-box" style="position:relative">
                                 <span class="details">Items*</span>
-                                <input type="text" placeholder="" required><i class="fa fa-arrow-down" style="float:right;margin-top:8px;
+                                <input type="text" placeholder="" v-model="name.item" required><i class="fa fa-arrow-down" style="float:right;margin-top:8px;
                                 right:5%;position:absolute;"></i>
-                                 <div class="dropdown-content">
+                                 <div class="dropdown-content" style="position:absolute;">
                                     <a href="#"><i class="fa fa-square-o"></i>Dinner</a>
                                     <a href="#"><i class="fa fa-square-o"></i>Fruits</a>
                                     <a href="#"><i class="fa fa-square-o"></i>Milk</a>
@@ -38,13 +39,13 @@
                             </div>
                             <div class="input-box">
                                 <span class="details">Transaction Amount(<i class="fa fa-inr"></i>)*</span>
-                                <input type="text" placeholder="" required>
+                                <input type="text" placeholder="" v-model="name.amount" required>
                             </div>
                         </div>
                         <div class="next">
 
           <button type="submit" id="close" class="submit-btn">Close</button>
-          <button type="submit" class="submit-btn  submit-btn1">Submit</button>
+          <button v-on:click="hello()" type="submit" class="submit-btn  submit-btn1">Submit</button>
            </div>
                     </form>
     </div>
@@ -53,6 +54,32 @@
 
 
 </template>
+
+<script>
+export default {
+    name:'form',
+    data(){
+        // return{userId:this.$emit.params.id}
+        return{
+            name:{
+                name:null,
+                email:null,
+                date:null,
+                type:[],
+                item:[],
+                amount:null,
+
+
+            }
+        }
+        
+    },methods:{
+        remove(){
+            this.form = [];
+        }
+    }
+}
+</script>
 
 
 <style scoped>
@@ -64,11 +91,16 @@
 }
 .form-box{
     text-align: center;
-    border-bottom: 4px solid lightgrey;
+    /* border-bottom: 4px solid lightgrey; */
 }
 .form-box p{
     color: gray;
 
+}
+.form-box p hr{
+    margin-top: 22px;
+    margin-right: 45%;
+    margin-left: 45%;
 }
 .button-box{
     margin: 80px;
@@ -151,6 +183,9 @@ form .user-details .input-box{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   margin-top: 8px;
+  left: 0;
+  width: 100%;
+  top: 60px;
 }
 
 .dropdown-content a {

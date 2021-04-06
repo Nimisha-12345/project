@@ -2,6 +2,7 @@
     <div class="main-container">
         <Contents />
         <div class="container">
+            
             <div class="part">
                 <div class="search_box">
                     <i class="fa fa-search"></i>
@@ -11,6 +12,8 @@
             </div>
             <CustomTable />
         </div>
+        <Footer />
+        <!-- <Form /> -->
     </div>
 
 
@@ -19,11 +22,17 @@
 <script>
 import CustomTable from '../components/CustomTable'
 import Contents from '../components/Contents'
+import Footer from '../components/Footer'
+// import Form from '../components/Form'
+
 export default {
     name:'search',
     components:{
         CustomTable,
         Contents,
+        Footer,
+        // Form,
+        
 
     }
     
