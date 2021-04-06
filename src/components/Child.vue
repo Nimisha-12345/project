@@ -8,7 +8,9 @@
             <td>{{user.email}}</td>
             <td>{{user.type}}</td>
             <td>{{user.date}}</td>
-            <td >{{user.items}}</td>
+            <td >
+                <span v-for="(items, index) in user.items" :key="index">{{items}}</span>
+            </td>
             <td><i class="fa fa-inr"></i>{{user.amount}}</td>
             <td><button class="btnclick"><i class="fa fa-pencil-square-o" style="color:#16c1f3"></i></button>
             <i class="fa fa-trash" style="color:#19174a"></i></td>

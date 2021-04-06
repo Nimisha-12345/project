@@ -32,7 +32,7 @@
                                 <input type="text" placeholder=""  required><i class="fa fa-arrow-down" style="float:right;margin-top:8px;
                                 right:5%;position:absolute;"></i>
                                  <div class="dropdown-content" style="position:absolute;">
-                                    <a href="#"><i class="fa fa-square-o"></i>Dinner</a>
+                                    <a href="#"><input type="checkbox" required>Dinner</a>
                                     <a href="#"><i class="fa fa-square-o"></i>Fruits</a>
                                     <a href="#"><i class="fa fa-square-o"></i>Milk</a>
                                  </div>
@@ -45,7 +45,7 @@
                         <div class="next">
 
           <button type="submit" id="close" class="submit-btn" @click="showHideForm(false)">Close</button>
-          <button v-on:click="hello()" type="submit" class="submit-btn  submit-btn1">Submit</button>
+          <button @click="addToList()" type="button" class="submit-btn  submit-btn1">Submit</button>
            </div>
                     </form>
     </div>
@@ -65,6 +65,7 @@ export default {
      methods:{
         addToList(){
             this.addItem({id:'CUI09867w',name:'Abhishek',email:'abhishek.abhi@gmail1.com',type:'credit',date:'06-01-21',items:['dinner','milk'],amount:1500});
+            this.showHideForm(false)
                 }
             }
         }
