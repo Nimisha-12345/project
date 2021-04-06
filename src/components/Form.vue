@@ -12,34 +12,34 @@
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Transaction Name*</span>
-                                <input type="text" placeholder=""  required>
+                                <input type="text" placeholder="" v-model="name" required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Email*</span>
-                                <input type="text" placeholder=""  required>
+                                <input type="email" placeholder="" v-model="email" required>
                             </div>
                             <div class="input-box">
                                 <span class="details ">Date OF Transaction*</span>
-                                <input type="text" placeholder=""  required><i class="fa fa-calendar" style="float: right;margin-top: 8px;
+                                <input type="text" placeholder="" v-model="date"  required><i class="fa fa-calendar" style="float: right;margin-top: 8px;
                                 right:5%;position: absolute;"></i>
                             </div>
                             <div class="input-box">
                                 <span class="details">Type*</span>
-                                <input type="text" placeholder=""  required>
+                                <input type="text" placeholder="" v-model="type"  required>
                             </div>
                             <div class="input-box" style="position:relative">
                                 <span class="details">Items*</span>
-                                <input type="text" placeholder=""  required><i class="fa fa-arrow-down" style="float:right;margin-top:8px;
+                                <input type="text" placeholder="" v-model="item"  required><i class="fa fa-arrow-down" style="float:right;margin-top:8px;
                                 right:5%;position:absolute;"></i>
                                  <div class="dropdown-content" style="position:absolute;">
-                                    <a href="#"><input type="checkbox" required>Dinner</a>
+                                    <a href="#"><i class="fa fa-square-o"></i>Dinner</a>
                                     <a href="#"><i class="fa fa-square-o"></i>Fruits</a>
                                     <a href="#"><i class="fa fa-square-o"></i>Milk</a>
                                  </div>
                             </div>
                             <div class="input-box">
                                 <span class="details">Transaction Amount(<i class="fa fa-inr"></i>)*</span>
-                                <input type="text" placeholder="" required>
+                                <input type="text" placeholder="" v-model="amount" required>
                             </div>
                         </div>
                         <div class="next">
@@ -62,9 +62,20 @@ export default {
         showHideForm: Function,
         addItem: Function
      },
+     data(){
+         return{
+             name:'',
+             email:'',
+             type:'',
+             date:'',
+             item:[],
+             amount:''
+
+         }
+     },
      methods:{
         addToList(){
-            this.addItem({id:'CUI09867w',name:'Abhishek',email:'abhishek.abhi@gmail1.com',type:'credit',date:'06-01-21',items:['dinner','milk'],amount:1500});
+            this.addItem({id:'CUI09867w',name:this.name,email:this.email,type:this.type,date:this.date,items:this.item,amount:this.amount});
             this.showHideForm(false)
                 }
             }
