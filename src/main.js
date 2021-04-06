@@ -2,16 +2,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import '@/assets/style.css'
 import VueRouter from 'vue-router'
-import Form from './components/Form.vue'
+
 // import Header from './components/Header.vue'
 // import Footer from './components/Footer.vue'
-import search from './components/search.vue'
+import Layout from './components/Layout.vue'
 
 Vue.use(VueRouter);
 const routes=[
-  {path:'/', component:search},
-  
-  {path:'/form', component:Form}
+  {path:'/', component:Layout}
+
 ]
 const router= new VueRouter({
   routes

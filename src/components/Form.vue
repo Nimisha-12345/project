@@ -5,31 +5,31 @@
             <div class="form-box">
                 <h1>Add New Transaction</h1>
                 <p>please fill the bellow detail to add the new transaction</p>
-                <hr>
+                <hr style="margin-left: 45%;margin-top: 20px;margin-right: 45%;">
             </div>
                 <div class="button-box">
                     <form action="#">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Transaction Name*</span>
-                                <input type="text" placeholder="" v-model="name.name" required>
+                                <input type="text" placeholder=""  required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Email*</span>
-                                <input type="text" placeholder="" v-model="name.email" required>
+                                <input type="text" placeholder=""  required>
                             </div>
                             <div class="input-box">
                                 <span class="details ">Date OF Transaction*</span>
-                                <input type="text" placeholder="" v-model="name.date" required><i class="fa fa-calendar" style="float: right;margin-top: 8px;
+                                <input type="text" placeholder=""  required><i class="fa fa-calendar" style="float: right;margin-top: 8px;
                                 right:5%;position: absolute;"></i>
                             </div>
                             <div class="input-box">
                                 <span class="details">Type*</span>
-                                <input type="text" placeholder="" v-model="name.type" required>
+                                <input type="text" placeholder=""  required>
                             </div>
                             <div class="input-box" style="position:relative">
                                 <span class="details">Items*</span>
-                                <input type="text" placeholder="" v-model="name.item" required><i class="fa fa-arrow-down" style="float:right;margin-top:8px;
+                                <input type="text" placeholder=""  required><i class="fa fa-arrow-down" style="float:right;margin-top:8px;
                                 right:5%;position:absolute;"></i>
                                  <div class="dropdown-content" style="position:absolute;">
                                     <a href="#"><i class="fa fa-square-o"></i>Dinner</a>
@@ -39,12 +39,12 @@
                             </div>
                             <div class="input-box">
                                 <span class="details">Transaction Amount(<i class="fa fa-inr"></i>)*</span>
-                                <input type="text" placeholder="" v-model="name.amount" required>
+                                <input type="text" placeholder="" required>
                             </div>
                         </div>
                         <div class="next">
 
-          <button type="submit" id="close" class="submit-btn">Close</button>
+          <button type="submit" id="close" class="submit-btn" @click="showHideForm(false)">Close</button>
           <button v-on:click="hello()" type="submit" class="submit-btn  submit-btn1">Submit</button>
            </div>
                     </form>
@@ -58,27 +58,16 @@
 <script>
 export default {
     name:'form',
-    data(){
-        // return{userId:this.$emit.params.id}
-        return{
-            name:{
-                name:null,
-                email:null,
-                date:null,
-                type:[],
-                item:[],
-                amount:null,
-
-
+    props: {
+        showHideForm: Function,
+        addItem: Function
+     },
+     methods:{
+        addToList(){
+            this.addItem({id:'CUI09867w',name:'Abhishek',email:'abhishek.abhi@gmail1.com',type:'credit',date:'06-01-21',items:['dinner','milk'],amount:1500});
+                }
             }
         }
-        
-    },methods:{
-        remove(){
-            this.form = [];
-        }
-    }
-}
 </script>
 
 

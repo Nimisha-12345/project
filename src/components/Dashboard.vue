@@ -1,6 +1,6 @@
 <template>
-    <div class="main-container">
-        <Contents />
+    <div class="dashboard">
+        <DashboardHeading :showHideForm="showHideForm" />
         <div class="container">
             
             <div class="part">
@@ -10,28 +10,31 @@
                 </div>
                 <p>Showing 10 of 53</p>
             </div>
-            <CustomTable />
+            <CustomTable :users="users" />
         </div>
-        <Footer />
-        <!-- <Form /> -->
+        <Pagination />
     </div>
 
 
 </template>
 
 <script>
-import CustomTable from '../components/CustomTable'
-import Contents from '../components/Contents'
-import Footer from '../components/Footer'
-// import Form from '../components/Form'
+import CustomTable from './CustomTable.vue'
+import DashboardHeading from './DashboardHeading.vue'
+import Pagination from './Pagination.vue'
+
 
 export default {
     name:'search',
+    props:{
+        users: Array,
+        showHideForm: Function
+    },
     components:{
         CustomTable,
-        Contents,
-        Footer,
-        // Form,
+        DashboardHeading,
+        Pagination,
+        
         
 
     }
@@ -40,6 +43,9 @@ export default {
 </script>
 
 <style scoped>
+.dashboard{
+    width: 100%;
+}
 .container{
     background: white;
     border-radius: 8px;
