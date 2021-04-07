@@ -14,7 +14,8 @@ import Child from '../components/Child'
 
 export default ({
      props:{
-         users: Array
+         users: Array,
+         ShowHideForm: Function
      },
     components: {
         TableHeader,

@@ -60,8 +60,7 @@ export default {
     name:'form',
     props: {
         showHideForm: Function,
-        addItem: Function,
-        // item: Object,
+        addItem: Function
      },
      data(){
          return{

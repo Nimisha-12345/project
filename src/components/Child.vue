@@ -12,7 +12,7 @@
                 <span v-for="(items, index) in user.items" :key="index">{{items}}</span>
             </td>
             <td><i class="fa fa-inr"></i>{{user.amount}}</td>
-            <td><button class="btnclick" @click="showHideForm(true)"><i class="fa fa-pencil-square-o" style="color:#16c1f3"></i></button>
+            <td><button class="btnclick" @click="showForm(true)"><i class="fa fa-pencil-square-o" style="color:#16c1f3"></i></button>
             <i class="fa fa-trash" style="color:#19174a"></i></td>
         </tr>
     </tbody>
@@ -23,9 +23,14 @@
 export default {
     name:'child',
     props:{
-        user: Object
+        user: Object,
+        showHideForm: Function,
+        addItem: Function
 
     },methods:{
+        showForm(){
+            this.showHideForm(true)
+        },
         addData(){
             this.addItem( {id:'CUI09867',name:'Abhishek LG',email:'abhishek.abhi@gmail.com',type:'credit',date:'06-01-21',items:['dinner','milk'],amount:1500})
             this.showHideForm(true)

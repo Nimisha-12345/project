@@ -1,5 +1,5 @@
 <template>
-    <div class="head">
+    <header class="head fixed-top">
         <h1>C<label>rud UI</label></h1>
         <div class="main">
         <nav>
@@ -15,7 +15,7 @@
         </div>
         </div>
        
-    </div>
+    </header>
     
 
 </template>
@@ -53,6 +53,13 @@ export default {
 nav{
     color: #6C6A9D;
     display: inline-flex;
+}
+header.head.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
 }
 .icon{
     list-style: none;

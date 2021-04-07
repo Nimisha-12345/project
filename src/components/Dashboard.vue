@@ -10,7 +10,7 @@
                 </div>
                 <p>Showing 10 of 53</p>
             </div>
-            <CustomTable :users="users" />
+            <CustomTable :users="users" :showForm="showForm" />
         </div>
         <Pagination />
     </div>
