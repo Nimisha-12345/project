@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 
 // import Header from './components/Header.vue'
 // import Footer from './components/Footer.vue'
-import Layout from './components/Layout.vue'
+import Layout from './components/Layout'
 
 Vue.use(VueRouter);
 const routes=[

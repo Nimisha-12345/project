@@ -2,7 +2,7 @@
    <table>
        <TableHeader /> 
        
-            <Child v-for="user in users" :key="user.id" :user="user"  />
+            <Child v-for="user in users" :key="user.id" :user="user" :showHideForm="showHideForm" />
     </table>
             
 </template>

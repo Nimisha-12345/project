@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import CustomTable from './CustomTable.vue'
-import DashboardHeading from './DashboardHeading.vue'
-import Pagination from './Pagination.vue'
+import CustomTable from './CustomTable'
+import DashboardHeading from './DashboardHeading'
+import Pagination from './Pagination'
 
 
 export default {

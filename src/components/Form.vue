@@ -20,8 +20,8 @@
                             </div>
                             <div class="input-box">
                                 <span class="details ">Date OF Transaction*</span>
-                                <input type="text" placeholder="" v-model="date"  required><i class="fa fa-calendar" style="float: right;margin-top: 8px;
-                                right:5%;position: absolute;"></i>
+                                <input type="text" placeholder="" v-model="date"  required><i class="fa fa-calendar" style="float:right;transform: translateY(-27px);
+                                padding-right:7px"></i>
                             </div>
                             <div class="input-box">
                                 <span class="details">Type*</span>
@@ -29,8 +29,8 @@
                             </div>
                             <div class="input-box" style="position:relative">
                                 <span class="details">Items*</span>
-                                <input type="text" placeholder="" v-model="item"  required><i class="fa fa-arrow-down" style="float:right;margin-top:8px;
-                                right:5%;position:absolute;"></i>
+                                <input type="text" placeholder="" v-model="item"  required><i class="fa fa-arrow-down" style="float:right;transform: translateY(-27px);
+                                 padding-right:7px"></i>
                                  <div class="dropdown-content" style="position:absolute;">
                                     <a href="#"><i class="fa fa-square-o"></i>Dinner</a>
                                     <a href="#"><i class="fa fa-square-o"></i>Fruits</a>
@@ -60,7 +60,8 @@ export default {
     name:'form',
     props: {
         showHideForm: Function,
-        addItem: Function
+        addItem: Function,
+        // item: Object,
      },
      data(){
          return{
