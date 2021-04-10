@@ -6,13 +6,13 @@
             <td>{{user.id}}</td>
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
-            <td>{{user.type}}</td>
+            <td style="color:#037B36;">{{user.type}}</td>
             <td>{{user.date}}</td>
             <td >
                 <span v-for="(items, index) in user.items" :key="index">{{items}}</span>
             </td>
             <td><i class="fa fa-inr"></i>{{user.amount}}</td>
-            <td><button class="btnclick" @click="showForm(true)"><i class="fa fa-pencil-square-o" style="color:#16c1f3"></i></button>
+            <td><button class="btnclick" @click="showEditForm"><i class="fa fa-pencil-square-o" style="color:#16c1f3"></i></button>
             <i class="fa fa-trash" style="color:#19174a"></i></td>
         </tr>
     </tbody>
@@ -28,13 +28,10 @@ export default {
         addItem: Function
 
     },methods:{
-        showForm(){
-            this.showHideForm(true)
-        },
-        addData(){
-            this.addItem( {id:'CUI09867',name:'Abhishek LG',email:'abhishek.abhi@gmail.com',type:'credit',date:'06-01-21',items:['dinner','milk'],amount:1500})
-            this.showHideForm(true)
+        showEditForm(){
+            this.showHideForm(true, this.user)
         }
+        
     }
 }
 </script>
@@ -55,5 +52,9 @@ i {
     background: white;
     border: none;
     outline: none;
+}
+td span{
+    padding-right: 5px;
+    background: lightgrey;
 }
 </style>

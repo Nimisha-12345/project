@@ -2,7 +2,7 @@
        <div class="content">
             <h2>List of transactions</h2>
             <span>
-            <button @click="showHideForm(true)">Create New</button>
+            <button @click="showHideForm(true, null)">Create New</button>
             </span>
             
         </div>
@@ -15,7 +15,9 @@
 export default {
     name:'DashboardHeader',
     props: {
-        showHideForm: Function
+        showHideForm: Function,
+        
+        
     }
     
 }

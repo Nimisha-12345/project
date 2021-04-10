@@ -1,21 +1,18 @@
 <template>
     <div class="dashboard">
         <DashboardHeading :showHideForm="showHideForm" />
-        <div class="container">
-            
+        <div class="container">            
             <div class="part">
                 <div class="search_box">
-                    <i class="fa fa-search"></i>
-                    <input type="text" class="input" placeholder="search">
+                    <i class="fa fa-search" @click="searchName(searchValue)"></i>
+                    <input type="text" v-model="searchValue" class="input" placeholder="search">
                 </div>
-                <p>Showing 10 of 53</p>
+                <p>Showing {{users.length}} of {{users.length}}</p>
             </div>
-            <CustomTable :users="users" :showForm="showForm" />
+            <CustomTable :users="users" :showHideForm="showHideForm" />
         </div>
         <Pagination />
     </div>
-
-
 </template>
 
 <script>
@@ -23,20 +20,23 @@ import CustomTable from './CustomTable'
 import DashboardHeading from './DashboardHeading'
 import Pagination from './Pagination'
 
-
 export default {
-    name:'search',
+    name:'Dashboards',
     props:{
         users: Array,
-        showHideForm: Function
+        showHideForm: Function,
+        searchName: Function
     },
     components:{
         CustomTable,
         DashboardHeading,
         Pagination,
-        
-        
 
+    },
+    data() {
+        return{
+            searchValue: ''
+        }
     }
     
 };

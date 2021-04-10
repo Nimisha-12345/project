@@ -8,7 +8,7 @@
                 <hr style="margin-left: 45%;margin-top: 20px;margin-right: 45%;">
             </div>
                 <div class="button-box">
-                    <form action="#">
+                    <form @submit.prevent="savaItem">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">Transaction Name*</span>
@@ -16,36 +16,39 @@
                             </div>
                             <div class="input-box">
                                 <span class="details">Email*</span>
-                                <input type="email" placeholder="" v-model="email" required>
+                               <input type="email" placeholder="" v-model="email" required>
                             </div>
                             <div class="input-box">
                                 <span class="details ">Date OF Transaction*</span>
-                                <input type="text" placeholder="" v-model="date"  required><i class="fa fa-calendar" style="float:right;transform: translateY(-27px);
-                                padding-right:7px"></i>
+                                <input type="date" placeholder="" v-model="date"  required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Type*</span>
-                                <input type="text" placeholder="" v-model="type"  required>
+                                <!-- <input type="text" placeholder="" v-model="type"  required> -->
+                                <select name="select" v-model="type" >
+                                    <option>Credit</option>
+                                    <option>Debit</option>
+                                </select>
                             </div>
                             <div class="input-box" style="position:relative">
                                 <span class="details">Items*</span>
-                                <input type="text" placeholder="" v-model="item"  required><i class="fa fa-arrow-down" style="float:right;transform: translateY(-27px);
+                                <input type="text" placeholder="" v-model="items"  required><i class="fa fa-arrow-down" style="float:right;transform: translateY(-27px);
                                  padding-right:7px"></i>
                                  <div class="dropdown-content" style="position:absolute;">
-                                    <a href="#"><i class="fa fa-square-o"></i>Dinner</a>
-                                    <a href="#"><i class="fa fa-square-o"></i>Fruits</a>
-                                    <a href="#"><i class="fa fa-square-o"></i>Milk</a>
+                                    <a href="#" class="dropdown"><input type="checkbox">Dinner</a>
+                                    <a href="#" class="dropdown"><input type="checkbox" >Fruits</a>
+                                    <a href="#" class="dropdown"><input type="checkbox">Milk</a>
                                  </div>
                             </div>
                             <div class="input-box">
                                 <span class="details">Transaction Amount(<i class="fa fa-inr"></i>)*</span>
-                                <input type="text" placeholder="" v-model="amount" required>
+                                <input type="number" placeholder="" v-model="amount" required>
                             </div>
                         </div>
                         <div class="next">
 
-          <button type="submit" id="close" class="submit-btn" @click="showHideForm(false)">Close</button>
-          <button @click="addToList()" type="button" class="submit-btn  submit-btn1">Submit</button>
+          <button type="button" id="close" class="submit-btn" @click="showHideForm(false)">Close</button>
+          <button @click="savaItem()" type="submit" class="submit-btn  submit-btn1">Submit</button>
            </div>
                     </form>
     </div>
@@ -57,10 +60,15 @@
 
 <script>
 export default {
-    name:'form',
+    name:'CustomForm',
+    
+
     props: {
         showHideForm: Function,
-        addItem: Function
+        addItem: Function,
+        editItem: Function,
+        item: Object,
+        user: null,
      },
      data(){
          return{
@@ -68,18 +76,35 @@ export default {
              email:'',
              type:'',
              date:'',
-             item:[],
-             amount:''
+             items:[],
+             amount:'',
+             
 
          }
-     },
+    },
+    mounted () {
+            if(this.user){
+                this.name = this.user.name;
+                this.email = this.user.email;
+                this.date = this.user.date;
+                this.type = this.user.type;
+                this.items = this.user.items;
+                this.amount = this.user.amount
+            }
+    },
      methods:{
-        addToList(){
-            this.addItem({id:'CUI09867w',name:this.name,email:this.email,type:this.type,date:this.date,items:this.item,amount:this.amount});
-            this.showHideForm(false)
+            savaItem() {
+               if (this.user){
+                   this.editItem({id:this.user.id,name:this.name,email:this.email,type:this.type,date:this.date,items:this.items,amount:this.amount})
+                      console.log(this.name, this.email, this.date, this.type, this.items, this.amount);
+                }else{
+                      this.addItem({id:'CUI09867w',name:this.name,email:'nj@mail.com',type:'credit',date:'06/02/21',items:['dinner'],amount:'1200'});  
+                }
+                this.showHideForm(false)
                 }
             }
         }
+
 </script>
 
 
@@ -193,10 +218,16 @@ form .user-details .input-box{
   color: black;
   padding: 12px 16px;
   text-decoration: none;
-  display: block;
-}
+  margin-right: 12rem;
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+
+}
+a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 65%;
+}
 
 .input-box:hover .dropdown-content {
   display: block;
@@ -204,10 +235,24 @@ form .user-details .input-box{
 .dropdown-content a i {
     margin-right: 12px;
 }
+.dropdown{
+    margin-left: 13px;
+}
 
 /* .dropdown:hover .details {
   background-color: #3e8e41;
 } */
-
+input[type=checkbox]{
+    width: 20px!important;
+}
+select {
+    width: 100%;
+    height: 35px;
+    background:#f2f2f2;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ededed;
+    border-bottom-width: 2px;
+}
 
 </style>
