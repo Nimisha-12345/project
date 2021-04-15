@@ -26,5 +26,8 @@ th{
      padding: 15px;
     
 }
+th i{
+    padding-right: 10px;
+}
 
 </style>

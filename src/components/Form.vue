@@ -20,7 +20,7 @@
                             </div>
                             <div class="input-box">
                                 <span class="details ">Date OF Transaction*</span>
-                                <input type="date" placeholder="" v-model="date"  required>
+                                <input type="date" placeholder=""  v-model="date"  required>
                             </div>
                             <div class="input-box">
                                 <span class="details">Type*</span>
@@ -32,12 +32,12 @@
                             </div>
                             <div class="input-box" style="position:relative">
                                 <span class="details">Items*</span>
-                                <input type="text" placeholder="" v-model="items"  required><i class="fa fa-arrow-down" style="float:right;transform: translateY(-27px);
+                                <input type="text" placeholder="" v-model="selectedFields"  required><i class="fa fa-arrow-down" style="float:right;transform: translateY(-27px);
                                  padding-right:7px"></i>
                                  <div class="dropdown-content" style="position:absolute;">
-                                    <a href="#" class="dropdown"><input type="checkbox">Dinner</a>
-                                    <a href="#" class="dropdown"><input type="checkbox" >Fruits</a>
-                                    <a href="#" class="dropdown"><input type="checkbox">Milk</a>
+                                    <a href="#" class="dropdown"><input type="checkbox" v-model="dinner">Dinner</a>
+                                    <a href="#" class="dropdown"><input type="checkbox" v-model="fruits">Fruits</a>
+                                    <a href="#" class="dropdown"><input type="checkbox" v-model="milk">Milk</a>
                                  </div>
                             </div>
                             <div class="input-box">
@@ -67,6 +67,7 @@ export default {
         showHideForm: Function,
         addItem: Function,
         editItem: Function,
+        delItem: Function,
         item: Object,
         user: null,
      },
@@ -78,10 +79,29 @@ export default {
              date:'',
              items:[],
              amount:'',
-             
-
+             dinner:false,
+             fruits:false,
+             milk:false
          }
     },
+    computed :{
+        selectedFields () {
+            let selectedItems = [];
+            if (this.dinner) {
+                selectedItems.push('dinner');
+            }
+            if (this.fruits) {
+                selectedItems.push('fruits');
+            }
+            if (this.milk) {
+                 selectedItems.push('milk');
+            }
+            return selectedItems;
+        }
+
+        },
+
+    
     mounted () {
             if(this.user){
                 this.name = this.user.name;
@@ -89,16 +109,30 @@ export default {
                 this.date = this.user.date;
                 this.type = this.user.type;
                 this.items = this.user.items;
-                this.amount = this.user.amount
+                this.amount = this.user.amount;
+                this.findItemAndSetValue('dinner');
+                this.findItemAndSetValue('fruits');
+                this.findItemAndSetValue('milk');
             }
     },
      methods:{
+         findItemAndSetValue (value){
+             let index = this.items.findIndex(item => {
+                 return item === value;
+             });
+             if (index > -1) {
+                 this[value] = true;
+             }else{
+                 this[value] = false;
+             }
+
+         },
             savaItem() {
                if (this.user){
-                   this.editItem({id:this.user.id,name:this.name,email:this.email,type:this.type,date:this.date,items:this.items,amount:this.amount})
+                   this.editItem({id:this.user.id,name:this.name,email:this.email,type:this.type,date:this.date,items:this.selectedFields,amount:this.amount})
                       console.log(this.name, this.email, this.date, this.type, this.items, this.amount);
                 }else{
-                      this.addItem({id:'CUI09867w',name:this.name,email:'nj@mail.com',type:'credit',date:'06/02/21',items:['dinner'],amount:'1200'});  
+                      this.addItem({id:Math.random(),name:this.name,email:this.email,type:this.type,date:this.date,items:this.selectedFields,amount:this.amount});  
                 }
                 this.showHideForm(false)
                 }

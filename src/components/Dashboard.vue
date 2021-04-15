@@ -1,6 +1,6 @@
 <template>
     <div class="dashboard">
-        <DashboardHeading :showHideForm="showHideForm" />
+        <DashboardHeading :showHideForm="showHideForm"  />
         <div class="container">            
             <div class="part">
                 <div class="search_box">
@@ -9,7 +9,7 @@
                 </div>
                 <p>Showing {{users.length}} of {{users.length}}</p>
             </div>
-            <CustomTable :users="users" :showHideForm="showHideForm" />
+            <CustomTable :users="users" :showHideForm="showHideForm" :delItem="delItem" />
         </div>
         <Pagination />
     </div>
@@ -25,7 +25,8 @@ export default {
     props:{
         users: Array,
         showHideForm: Function,
-        searchName: Function
+        searchName: Function,
+        delItem: Function,
     },
     components:{
         CustomTable,
@@ -69,10 +70,11 @@ export default {
 .input{
     border: none;
     background: #f2f2f2;
-    padding-left: 40px;
+    padding-left: 46px;
     padding-right: 10px;
     height: 100%;
     width: 100%;
+    border-radius: 6px;
 
 }
 .search_box i {
@@ -80,6 +82,7 @@ export default {
     top: 50%;
     transform: translateY(-50%);
     left: 10px;
+    color: #c3c3c3;
 }
 .part p {
     color: #2e2e2e;

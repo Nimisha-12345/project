@@ -2,7 +2,7 @@
    <table>
        <TableHeader /> 
        
-            <Child v-for="user in users" :key="user.id" :user="user" :showHideForm="showHideForm" />
+            <Child v-for="user in users" :key="user.id" :user="user" :showHideForm="showHideForm" :delItem="delItem" />
     </table>
             
 </template>
@@ -15,7 +15,8 @@ import Child from '../components/Child'
 export default ({
      props:{
          users: Array,
-         showHideForm: Function
+         showHideForm: Function,
+         delItem: Function,
      },
     components: {
         TableHeader,
